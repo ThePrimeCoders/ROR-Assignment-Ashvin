@@ -4,6 +4,10 @@ class AuctionBid < ApplicationRecord
   belongs_to :auction_item
   belongs_to :auction
 
+  validates :user, presence: true
+  validates :auction_item, presence: true
+  validates :auction, presence: true
+
   def self.bid_notication_send(bid)
     bids = Auction.where(activation: true, id: bid.auction_id).last.auction_bids.where("auction_item_id = ? and amount < ?", bid.auction_item_id, bid.amount).where.not(user_id: bid.user_id)
     users = bids.map(&:user_id).uniq
