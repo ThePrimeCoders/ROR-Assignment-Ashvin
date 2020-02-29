@@ -1,0 +1,18 @@
+Exceptions:
+  ValidationError:
+    Code: 1001
+    Message: "Required field are missing"
+    Data: ''
+    HttpCode: '406'
+  AuthorizationError:
+    Code: 1002
+    Message: "You're not authorize"
+    HttpCode: '401'
+  NotFound:
+    Code: 1003
+    Message: "Content not found"
+    HttpCode: '404'
+  GeneralError:
+    Code: 1099
+    Message: "Internal server error, please try after some time"
+    HttpCode: '500'

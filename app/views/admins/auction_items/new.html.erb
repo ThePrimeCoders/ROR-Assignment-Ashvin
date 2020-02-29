@@ -1,0 +1,9 @@
+<div class="title-row">
+  <%= link_to(admins_auction_items_path, class: 'back-link') do %>
+    <%= t('auction_items.back_to_auction_items') %>
+  <% end %>
+</div>
+
+<%= form_for(@auction_item, url: admins_auction_items_path, html: { class: 'content-form' }) do |f| %>
+	<%= render partial: "form", locals: { f: f } %>
+<% end -%>

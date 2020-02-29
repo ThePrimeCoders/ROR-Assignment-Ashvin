@@ -1,0 +1,77 @@
+<div class="title-row">
+  <h1 class="mobile-hidden"><%= t('auctions.auctions') %></h1>
+
+  <div class="page-controls">
+    <h1 class="mobile-visible"><%= t('auctions.auctions') %></h1>
+
+    <ul class="button-row managers-controls">
+      <li>
+        <%= link_to(new_admins_auction_path, class: 'button fill') do %>
+          <%= t('auctions.add_auction') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="content-block">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h3><%= t('auctions.auction_details') %></h3>
+
+      <div class="table-container">
+        <table class="table-striped mobile-hidden table">
+          <thead>
+            <tr>
+              <th scope="col"><%= t('auctions.id') %></th>
+              <th scope="col"><%= t('auctions.name') %></th>
+              <th scope="col"><%= t('auctions.auction_time') %></th>
+              <th scope="col"><%= t('auctions.user') %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @auctions.each do |auction| %>
+              <tr>
+                <td><%= link_to(auction.id, admins_auction_path(auction)) %></td>
+                <td><%= auction.name %></td>
+                <td><%= auction.auction_time %></td>
+                <td><%= auction.user&.firstname %></td>
+                <td>
+                  <%= link_to(t('auctions.edit_auction'), edit_admins_auction_path(auction), class: 'button text fill') %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="mobile-table mobile-visible">
+        <% @auctions.each do |auction| %>
+          <li>
+            <ul class="worker-cell">
+              <li>
+                <em><%= t('auctions.id') %></em>
+                <%= link_to(auction.id, admins_auction_path(auction)) %>
+              </li>
+              <li>
+                <em><%= t('auctions.name') %></em>
+                <%= auction.name %>
+              </li>
+              <li>
+                <em><%= t('auctions.auction_time') %></em>
+                <%= auction.auction_time %>
+              </li>
+              <li>
+                <em><%= t('auctions.user') %></em>
+                <%= auction.user&.firstname %>
+              </li>
+              <li>
+                <%= link_to(t('auctions.edit_auction'), edit_admins_auction_path(auction), class: 'button text fill') %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

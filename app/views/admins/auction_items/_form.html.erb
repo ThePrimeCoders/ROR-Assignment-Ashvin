@@ -1,0 +1,23 @@
+<div>
+  <%= render 'partials/errors', model: @auction_item %>
+</div>
+<div>
+  <%= f.label(:name, t('auction_items.name')) %>
+  <%= f.text_field(:name) %>
+</div>
+<div>
+  <%= f.label(:min_bid, t('auction_items.min_bid')) %>
+  <%= f.number_field(:min_bid) %>
+</div>
+<div>
+  <%= f.label(:auction, t('auction_items.auction')) %>
+  <%= f.select(:auction_id, @auctions.map { |k| [k.name, k.id] }, class: 'form-control') %>
+</div>
+<div class="button-row">
+  <%= link_to(t('forms.cancel'), admins_auction_items_path, class: 'button text') %>
+  <% if @auction_item.new_record? %>
+    <%= f.submit(t('auction_items.add_auction_item'), class: 'button text fill') %>
+  <% else %>
+    <%= f.submit(t('forms.save_changes'), class: 'button text fill') %>
+  <% end %>
+</div>

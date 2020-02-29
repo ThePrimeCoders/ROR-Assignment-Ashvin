@@ -1,0 +1,19 @@
+<div>
+  <%= render 'partials/errors', model: @auction %>
+</div>
+<div>
+  <%= f.label(:name, t('auctions.name')) %>
+  <%= f.text_field(:name) %>
+</div>
+<div>
+  <%= f.label(:auction_time, t('auction_items.auction_time')) %>
+  <%= f.text_field(:auction_time) %>
+</div>
+<div class="button-row">
+  <%= link_to(t('forms.cancel'), admins_auctions_path, class: 'button text') %>
+  <% if @auction.new_record? %>
+    <%= f.submit(t('auctions.add_auction'), class: 'button text fill') %>
+  <% else %>
+    <%= f.submit(t('forms.save_changes'), class: 'button text fill') %>
+  <% end %>
+</div>

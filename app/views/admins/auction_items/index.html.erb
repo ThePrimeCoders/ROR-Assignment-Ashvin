@@ -1,0 +1,77 @@
+<div class="title-row">
+  <h1 class="mobile-hidden"><%= t('auction_items.auction_items') %></h1>
+
+  <div class="page-controls">
+    <h1 class="mobile-visible"><%= t('auction_items.auction_items') %></h1>
+
+    <ul class="button-row managers-controls">
+      <li>
+        <%= link_to(new_admins_auction_item_path, class: 'button fill') do %>
+          <%= t('auction_items.add_auction_item') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="content-block">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h3><%= t('auction_items.auction_item_details') %></h3>
+
+      <div class="table-container">
+        <table class="table-hover mobile-hidden table">
+          <thead>
+            <tr>
+              <th scope="col"><%= t('auction_items.id') %></th>
+              <th scope="col"><%= t('auction_items.name') %></th>
+              <th scope="col"><%= t('auction_items.min_bid') %></th>
+              <th scope="col"><%= t('auction_items.auction') %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @auction_items.each do |auction_item| %>
+              <tr>
+                <td><%= link_to(auction_item.id, admins_auction_item_path(auction_item)) %></td>
+                <td><%= auction_item.name %></td>
+                <td><%= auction_item.min_bid %></td>
+                <td><%= auction_item.auction&.name %></td>
+                <td>
+                  <%= link_to(t('auction_items.edit_auction_item'), edit_admins_auction_item_path( auction_item), class: 'button text fill') %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="mobile-table mobile-visible">
+        <% @auction_items.each do |auction_item| %>
+          <li>
+            <ul class="worker-cell">
+              <li>
+                <em><%= t('auction_items.id') %></em>
+                <%= link_to(auction_item.id, admins_auction_item_path(auction_item)) %>
+              </li>
+              <li>
+                <em><%= t('auction_items.name') %></em>
+                <%= auction_item.name %>
+              </li>
+              <li>
+                <em><%= t('auction_items.min_bid') %></em>
+                <%= auction_item.min_bid %>
+              </li>
+              <li>
+                <em><%= t('auction_items.auction') %></em>
+                <%= auction_item.auction&.name %>
+              </li>
+              <li>
+                <%= link_to(t('auction_items.edit_auction_item'), edit_admins_auction_item_path(auction_item), class: 'button text fill') %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

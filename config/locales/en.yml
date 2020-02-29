@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  forms: 
+    save_changes: 'Save Changes'
+  auctions: 
+    auctions: 'Auctions'
+    add_auction: 'Add Auction'
+    id: 'Auction ID'
+    name: 'Name'
+    auction_time: 'Auction Time'
+    user: "User"
+    auction_details: 'Auction Details'
+    back_to_auctions: 'Back To Auctions'
+  auction_items:
+    auction: 'Auction' 
+    auction_items: "Auction Items"
+    add_auction_item: 'Add Auction Item'
+    id: 'Auction Item ID'
+    name: 'Name'
+    min_bid: 'Minimum Bid'
+    auction_item_details: 'Auction Item Details'
+    back_to_auction_items: 'Back To Auction Items'
+    save_changes: 'Save Changes'
+  auction_bids:
+    auction: 'Auction'
+    user: "User"
+    amount: 'Amount'
+    auction_item: 'Auction Item' 
+    auction_bids: "Auction Bids"
+    add_auction_bid: 'Add Auction Bid'
+    id: 'Auction Bid ID'
+    name: 'Name'
+    min_bid: 'Minimum Bid'
+    auction_bid_details: 'Auction Bid Details'
+    back_to_auction_bids: 'Back To Auction Bids'
+    save_changes: 'Save Changes'
+
