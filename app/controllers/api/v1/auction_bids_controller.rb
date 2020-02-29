@@ -16,6 +16,7 @@ class Api::V1::AuctionBidsController < Api::V1::ApplicationController
 
 	def highest_bids
 		@bids = AuctionBid.where(auction_id: params[:auction_id], auction_item_id: params[:auction_item_id])
+		ApiResponseSuccess(@bids.map(&:to_record))
 	end
 
 	def show
